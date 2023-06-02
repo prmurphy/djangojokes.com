@@ -1,4 +1,5 @@
 from django.urls import reverse_lazy
+from .forms import JokeForm
 from django.views.generic import (
     CreateView, DeleteView, DetailView, ListView, UpdateView
 )
@@ -14,11 +15,11 @@ class JokeListView(ListView):
 
 class JokeCreateView(CreateView):
     model = Joke
-    fields = ['question', 'answer']
+    form_class = JokeForm
 
 class JokeUpdateView(UpdateView):
     model = Joke
-    fields = ['question', 'answer']
+    form_class = JokeForm
 
 class JokeDeleteView(DeleteView):
     model = Joke
